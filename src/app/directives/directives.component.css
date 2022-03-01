@@ -1,0 +1,10 @@
+.even { 
+    background-color: rgb(52, 180, 180); 
+    color: white;
+}
+.odd { background-color: rgb(196, 151, 63); 
+    color: white;
+}
+tr:hover {
+    background-color: brown;
+}
