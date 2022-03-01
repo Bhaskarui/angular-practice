@@ -1,0 +1,10 @@
+.text-center {
+    text-align: center;
+    color: orange;
+}
+h3:hover {
+    color: aqua;
+}
+p:hover {
+color: blueviolet;
+}
