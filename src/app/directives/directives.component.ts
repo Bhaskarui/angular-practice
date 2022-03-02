@@ -37,7 +37,7 @@ this.movies.splice(i,1)
 
 addMovie() {
     this.movies.push(this.Movies)
-    
+    this.Movies=[];
   }
 
 

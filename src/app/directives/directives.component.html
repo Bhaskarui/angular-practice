@@ -1,4 +1,4 @@
-<input [(ngModel)]="size" /> 
+<input [(ngModel)]="size" />
 <div [ngStyle]="{'font-size.px': size}">Change my size using ngStyle</div>
 
 <h1 [ngStyle]="{'color': 'purple',
@@ -6,52 +6,55 @@
 'font-weight': 'bold'}">Structrural Directives:</h1>
 <h5> <span>1.</span> *ngFor</h5>
 <div class='panel panel-primary'>
-    <div class='panel-heading'>
-        {{title}}
+  <div class='panel-heading'>
+    {{title}}
+  </div>
+  <!-- Title: <input type="text" [(ngModel)]="title">
+  Director: <input type="text" [(ngModel)]="director">&nbsp; -->
+  <button (click)="addMovie()" class="btn btn-primary" style="text-align: center;">Add Table Row</button>
+  <div class='panel-body'>
+    <div class='table-responsive'>
+      <table class='table table-bordered table-striped'>
+        <thead>
+          <tr>
+            <th>Serial No.</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Cast</th>
+            <th>Release Date</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies; let i=index; let o= odd; let e=even;" [ngClass]="{ odd: o, even: e }">
+            <td>{{i}}</td>
+            <td>{{movie.title}}</td>
+            <td>{{movie.director}}</td>
+            <td>{{movie.cast}}</td>
+            <td>{{movie.releaseDate}}</td>
+            <td><button (click)="removeMovie(i)" class="btn btn-primary">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    Title: <input type="text" [(ngModel)]="title"> 
-Director: <input type="text" [(ngModel)]="director"> 
-<button  (click)="addMovie()">Add</button>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table table-bordered table-striped'>
-                <thead>
-                    <tr>
-                        <th>Serial No.</th>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies; let i=index; let o= odd; let e=even;"
-                    [ngClass]="{ odd: o, even: e }">
-                        <td>{{i}}</td>
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                        <td><button (click)="removeMovie(i)" class="btn btn-primary">Remove</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  </div>
 </div>
 <hr>
 <div style="text-align: center;">
-<h5> <span>2.</span> *ngSwitch:</h5>
-<input type='text' [(ngModel)]="num" />
- 
-    <div [ngSwitch]="num">
-      <div *ngSwitchCase="0">Zero is Selected</div>
-      <div *ngSwitchCase="1">One is Selected</div>
-      <div *ngSwitchCase="2">Two is Selected</div>
-      <div *ngSwitchDefault>This is Default selection</div>
-    </div>
-<div class="card-body">
+  <h5> <span>2.</span> *ngSwitch:</h5>
+  <input type='text' [(ngModel)]="num" />
+
+  <div [ngSwitch]="num">
+    <div *ngSwitchCase="0">Zero is Selected</div>
+    <div *ngSwitchCase="1">One is Selected</div>
+    <div *ngSwitchCase="2">Two is Selected</div>
+    <div *ngSwitchCase="3">Tree is Selected</div>
+    <div *ngSwitchCase="4">Four is Selected</div>
+    <div *ngSwitchCase="5">Five is Selected</div>
+    <div *ngSwitchDefault>This is Default selection</div>
+  </div>
+
+  <div class="card-body">
     <select [(ngModel)]="selectedValue4">
       <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
     </select>
@@ -63,66 +66,67 @@ Director: <input type="text" [(ngModel)]="director">
       <ng-container *ngSwitchCase="'Two'">
         <ng-container *ngTemplateOutlet="sharedTemplate12"></ng-container>
       </ng-container>
- 
+
       <ng-container *ngSwitchCase="'Three'">
         <ng-container *ngTemplateOutlet="sharedTemplate34"></ng-container>
       </ng-container>
- 
+
       <ng-container *ngSwitchCase="'Four'">
         <ng-container *ngTemplateOutlet="sharedTemplate34"></ng-container>
       </ng-container>
- 
+
       <ng-template #sharedTemplate12>Shared between 1,2</ng-template>
       <ng-template #sharedTemplate34>Shared between 3,4</ng-template>
       <ng-container *ngSwitchDefault>Default Template</ng-container>
     </ng-container>
   </div>
 </div>
-  <hr>
-  
+<hr>
+<div style="text-align: center;">
   <div class="row">
-    ShowMe checkBox:<input type="checkbox" [(ngModel)]="showMe"/>
+    <span style="text-align: center;">ShowMe checkBox:</span><input type="checkbox" [(ngModel)]="showMe" />
   </div>
-   <hr>
+  <hr>
   <h1>ngIf Directives</h1>
-   
+
   <p *ngIf="showMe">
     ShowMe is checked
   </p>
   <p *ngIf="!showMe">
     ShowMe is unchecked
   </p>
-   
+
   <h1>ngIf Else</h1>
-   
+
   <p *ngIf="showMe; else elseBlock1">
     ShowMe is checked
   </p>
-   
+
   <ng-template #elseBlock1>
     <p>ShowMe is unchecked Using elseBlock</p>
   </ng-template>
-   
+
   <h1>ngIf then else</h1>
-   
+
   <p *ngIf="showMe; then thenBlock2 else elseBlock2">
     This is not rendered
   </p>
-   
+
   <ng-template #thenBlock2>
     <p>ShowMe is checked Using thenblock</p>
   </ng-template>
-   
+
   <ng-template #elseBlock2>
     <p>ShowMe is unchecked Using elseBlock</p>
   </ng-template>
-   
+
   <h1>using hidden </h1>
-   
+
   <p [hidden]="showMe">
-      content to render, when the condition is true  using hidden property binding, checkbox not checked
+    content to render, when the condition is true using hidden property binding, checkbox not checked
   </p>
-   
+
   <p [hidden]="!showMe">
-      content to render, when the condition is false. using hidden property binding,checkbox checked
+    content to render, when the condition is false. using hidden property binding,checkbox checked
   </p>
+</div>

@@ -1,6 +1,6 @@
 <div class="text-center">
 <h1>Data Binding</h1>
-<h3>String Interpolation</h3>
+<h3>String Interpolation <i class="fa fa-sort"></i></h3>
 <h5>{{title}}</h5>
 <hr>
 <h3>Property Binding</h3> 
@@ -10,7 +10,7 @@
 <h3>Event Binding</h3>
 <!-- It is one way Binding from view to component. -->
 
-<button (click)="clickMe()">Click Me</button>
+<button class="btn btn-info" (click)="clickMe()">Click Me</button>
 <p>{{count}}</p>
 <input (input)="handleInput($event)">
 <p>You have entered:{{value}}</p>
@@ -24,7 +24,8 @@
 <input (keyup.enter)="value3=$any($event.target).value" (keyup.escape)="$any($event.target).value='';value3=''">
 <p>You entered== {{value3}}</p>
 <h2>Examaple of Two way data Binding</h2>
-<input type="text" name="search" [(ngModel)]="search">
+<input type="text" name="search" [(ngModel)]="search"> &nbsp;
+<button class="btn btn-primary" (click)="clearValue()">Clear</button>
 <p> You entered: {{search}}</p>
-<button (click)="clearValue()">Clear</button>
 </div>
+
