@@ -1,0 +1,20 @@
+<header>
+    <div class="navbar bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i class="fa fa-car fa-2x" style="color: aliceblue;"> &nbsp;
+                <strong style="font-size: 30px;">FlipKart</strong>
+            </i>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="serach products" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class=" btn btn-success rs" (click)="reset()">Reset</button>
+
+            </div>
+            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+        </div>
+        <button routerLink="cart" class="btn btn-primary"><i class="fa fa-cart-plus" style="font-size: 32px;"></i>
+            <div class="badge bg-danger">{{totalItem}}</div>
+        </button>
+    </div>
+</header>
