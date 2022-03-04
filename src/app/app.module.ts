@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductComponent } from './product/product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { HeaderComponent } from './component/header/header.component';
 import { CartComponent } from './component/cart/cart.component';
@@ -15,6 +15,7 @@ import { FiitersPipe } from './common/fiiters.pipe';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LogoutPageComponent } from './component/logout-page/logout-page.component';
 import { RegisterComponent } from './component/register/register.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RegisterComponent } from './component/register/register.component';
     FiitersPipe,
     LogoutPageComponent,
     RegisterComponent,
+    EmployeeDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { RegisterComponent } from './component/register/register.component';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

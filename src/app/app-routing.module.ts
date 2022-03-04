@@ -5,6 +5,7 @@ import { LogoutPageComponent } from './component/logout-page/logout-page.compone
 import { ProductsComponent } from './component/products/products.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DirectivesComponent } from './directives/directives.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { HomeComponent } from './shared/home/home.component';
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'directives', component:DirectivesComponent},
   {path: 'home', component:HomeComponent},
   {path: 'logout', component:LogoutPageComponent},
-  {path: 'register', component:RegisterComponent}
+  {path: 'register', component:RegisterComponent},
+  {path: 'employees', component:EmployeeDashboardComponent}
 ];
 
 @NgModule({
