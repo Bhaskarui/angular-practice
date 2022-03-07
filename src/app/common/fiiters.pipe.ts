@@ -14,7 +14,7 @@ export class FiitersPipe implements PipeTransform {
       if(res[propertyName].trim().toLowerCase().includes(filterString.toLowerCase())){
         result.push(res)
       }
-    })
+    });
     return result;
   }
 

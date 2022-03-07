@@ -18,7 +18,7 @@ toDate:Date = new Date;
     this.cartService.getProducts().subscribe((res:any)=>{
       this.products = res;
       console.log(this.products);
-      this.grandTotal = this.cartService.getTotalPrice()
+      this.grandTotal = this.cartService.getTotalPrice();
     });
   }
 

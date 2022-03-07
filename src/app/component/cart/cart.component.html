@@ -22,11 +22,11 @@
                     <tr *ngFor="let product of products; let i=index;">
                         <td>{{i+1}}</td>
                         <td>{{product.title}}</td>
-                        <td><img style="width: 120px;"  src="{{product.image}}" alt=""></td>
+                        <td><img style="width: 120px;" src="{{product.image}}" alt=""></td>
                         <td style="width: 25%;">{{product.description}}</td>
-                        <td style="width: 12%;">{{product.price}}</td>
+                        <td style="width: 12%;">${{product.price}}</td>
                         <td style="width: 12%;">{{product.quantity}}</td>
-                        <td style="width: 12%;">{{product.total}}</td>
+                        <td style="width: 12%;">${{product.total}}</td>
                         <td>
                             <button (click)="removeItem(product)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                         </td>

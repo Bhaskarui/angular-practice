@@ -1,0 +1,35 @@
+.card-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background: antiquewhite;
+    background-clip:border-box ;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+
+}
+.item img {
+    width: 60px;
+}
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+.item a:hover {
+    color: orange;
+}
+.card {
+    padding: 10px;
+    margin: 30px;
+}
+.card img {
+height: 200px;
+width: 200px;
+margin-bottom: 15px;
+transition: o.3s ease-in-out;
+}
+.card img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}

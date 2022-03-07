@@ -16,6 +16,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { LogoutPageComponent } from './component/logout-page/logout-page.component';
 import { RegisterComponent } from './component/register/register.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { ApiService } from './service/api.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
     ReactiveFormsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
