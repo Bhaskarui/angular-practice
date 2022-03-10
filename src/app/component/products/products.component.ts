@@ -18,11 +18,11 @@ filterCategory:any;
     this.apiService.getProduct().subscribe(res=>{
       this.productList = res;
       this.filterCategory = res;
-      this.productList.forEach((ele:any)=>{
-        if(ele.category ==="men's clothing" || ele.category==="women's clothing"){
-          ele.category = "fashion"
+      this.productList.forEach((result:any)=>{
+        if(result.category ==="men's clothing" || result.category==="women's clothing"){
+          result.category = "fashion"
         }
-        Object.assign(ele,{quantity:1,total:ele.price})
+        Object.assign(result,{quantity:1,total:result.price})
       })
       console.log(this.productList);
     })

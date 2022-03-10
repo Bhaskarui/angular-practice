@@ -3,3 +3,7 @@
     color: red;
     margin-top: -23px;
 }
+
+.is-invalid {
+    color: grey;
+}

@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './component/cart/cart.component';
 import { LogoutPageComponent } from './component/logout-page/logout-page.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { ProductsComponent } from './component/products/products.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DirectivesComponent } from './directives/directives.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'logout', component:LogoutPageComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'employees', component:EmployeeDashboardComponent}
+  {path: 'employees', component:EmployeeDashboardComponent},
+  {path: '**', component:PageNotFoundComponent}
 ];
 
 @NgModule({

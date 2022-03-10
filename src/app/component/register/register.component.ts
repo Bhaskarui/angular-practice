@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 // import { ConfirmedValidator } from './confirmed.validator';
 
 @Component({
@@ -11,34 +12,33 @@ export class RegisterComponent implements OnInit {
   isReg: boolean = false;
   registerForm!: FormGroup;
   submitted: boolean = false;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
 
     this.registerForm = this.fb.group({
-      firstname: ['', [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
-      email:['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-     
-     
+      firstname: ['', [Validators.required]],
+      email:['', [Validators.required, Validators.pattern("[A-Za-z0-9._%+-]{1,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})")]],
+    
         password: ['', [Validators.required, Validators.minLength(10)]],
-        cpasword:['', [Validators.required]]
-    }, {Validators: this.confirmedValidator('password', 'cpassword')})
+        confirmPassword:['', [Validators.required]]
+    }, {Validators: this.MustMatch('password', 'confirmPassword')})
   }
 
   //   registrer() {
   // this.isReg = true;
   //   }
 
-  confirmedValidator(controlName: string, matchingControlName: string) {
+  MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
 
-      if (matchingControl.errors && !matchingControl.errors['confirmedValidator']) {
+      if (matchingControl.errors && !matchingControl.errors['mustMatch']) {
         return;
       }
       if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ confirmedValidator: true });
+        matchingControl.setErrors({ mustMatch: true });
       } else {
         matchingControl.setErrors(null);
       }
@@ -61,16 +61,25 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('password');
   }
 
-  // get cpassword() {
-  //   return this.registerForm.get('cpassword');
-  // }
+  get confirmPassword() {
+    return this.registerForm.get('confirmPassword');
+  }
 
 
   onSubmit() {
+    this.submitted = true;
     console.log(this.registerForm.value);
-    if (this.registerForm.invalid) {
-      return;
-    }
+    // if (this.registerForm.invalid) {
+    //   return;
+    // }
+  }
+
+ message:string = '';
+  register(){
+    this.message = "Registered Sucessfully!";
+    this.router.navigate(["/logout"])
+console.log(this.message)
+
   }
 
 }

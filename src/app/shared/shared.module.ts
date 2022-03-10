@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { HomeComponent } from './home/home.component';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,8 @@ import { LogoutPageComponent } from './component/logout-page/logout-page.compone
 import { RegisterComponent } from './component/register/register.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { ApiService } from './service/api.service';
+import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ApiService } from './service/api.service';
     LogoutPageComponent,
     RegisterComponent,
     EmployeeDashboardComponent,
+    FooterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
